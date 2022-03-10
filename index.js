@@ -2140,6 +2140,56 @@ case 'random':
             cnf.sendMessage(from, argzi[0], MessageType.text)
           }
           break
+		        case 'tospam':
+          case 'darspam':
+            case 'text':
+          if (!isQuotedSticker && !isQuotedAudio && !isQuotedImage && budy.length > 10) {
+          teks = body.slice(8)
+          oi1 = teks.split('|')[0]
+          oi2 = teks.split('|')[1]
+          if (Number(oi2) >= 100) return reply('La mayoría!')
+          if (!Number(oi2)) return reply('La cantidad debe ser un número!')
+              for (let i = 0; i < oi2; i++) {
+              cnf.sendMessage(from, `${oi1}`, MessageType.text)
+              }
+          } else if (!isQuotedSticker && !isQuotedAudio && !isQuotedImage && budy.length < 10) {
+          teks = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
+          if (!Number(args[0])) return reply('La cantidad debe ser un número!')
+          if (Number(args[0]) >= 100) return reply('La mayoría!')
+              for (let i = 0; i < args[0]; i++) {
+              cnf.sendMessage(from, teks, MessageType.text)
+              }
+          } else if (isQuotedSticker) {
+            encmedian = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+                     median = await cnf.downloadAndSaveMediaMessage(encmedian)
+                  anu = fs.readFileSync(median)
+            if (!Number(args[0])) return reply('La cantidad debe ser un número!')
+            if (Number(args[0]) >= 100) return reply('La mayoría!')
+              for (let i = 0; i < args[0]; i++) {
+              cnf.sendMessage(from, anu, sticker)
+              }
+          } else if (isQuotedAudio) {
+            encmediat = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+                        mediat = await cnf.downloadAndSaveMediaMessage(encmediat)
+                  anu = fs.readFileSync(mediat)
+            if (!Number(args[0])) return reply('La cantidad debe ser un número!')
+            if (Number(args[0]) >= 100) return reply('La mayoría!')
+              for (let i = 0; i < args[0]; i++) {
+              cnf.sendMessage(from, anu, audio, {mimetype: 'audio/mp4', duration: 359996400, ptt:true})
+              }
+          } else if (isQuotedImage) {
+            boij = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+            delb = await cnf.downloadMediaMessage(boij)
+            teks = body.slice(6)
+            oi1 = teks.split('|')[0]
+          oi2 = teks.split('|')[1]
+          if (Number(oi2) >= 500) return reply('La mayoría!')
+            if (!Number(oi2)) return reply('La cantidad debe ser un número!')
+              for (let i = 0; i < oi2; i++) {
+              cnf.sendMessage(from, delb, MessageType.image, {caption: oi1})
+              }
+          }
+              break
             case 'clearall':
 	case 'vaciarchats':
             if (!isOwner && !mek.key.fromMe) return reply(`Este comando solo puede ser usado por darlyn`)
