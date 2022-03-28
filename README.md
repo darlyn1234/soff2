@@ -1,7 +1,7 @@
 #### DARLYN XD
 
 <p align="center">
-<img src="https://github.com/darlyn1234/penexd/blob/master/dararchivos/imagen/sofff.jpg" alt="jpg" width="600" height="600"/>
+<img src="https://github.com/darlyn1234/sofff3/blob/master/dararchivos/imagen/sofff.jpg" alt="jpg" width="600" height="600"/>
 </p>
 <p align="center">
     <img
